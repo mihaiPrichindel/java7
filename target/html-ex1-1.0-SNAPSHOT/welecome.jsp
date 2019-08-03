@@ -7,14 +7,14 @@
 Time on the server is: <%= new java.util.Date() %> <br>
 
 
-Converting a string to upercase
+Converting a string ("Hello World") to upercase
+<%= new String("Hello World".toUpperCase())%><br>
 <br>
 <br>
+Call on JAVA class sum metod is :<%= Welecome.sum(3,3) %>
 <br>
-Call on java class sum metod is :<%= Welecome.sum(3,3) %>
 <br>
-<br>
-Call on java class sum metod is : <%= sum(3,4)%>
+Call on JSP sum metod is : <%= sum(3,4)%>
 <%!
     int sum(int a, int b) {
         return a+b;

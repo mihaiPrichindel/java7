@@ -7,8 +7,8 @@
 Time on the server is: <%= new java.util.Date() %> <br>
 
 
-Converting a string to upercase
-<br>
+Converting a string ("Hello World") to upercase
+<%= new String("Hello World".toUpperCase())%><br>
 <br>
 <br>
 Call on JAVA class sum metod is :<%= Welecome.sum(3,3) %>
