@@ -1,14 +1,20 @@
-This student is confirmed:
-<%= request.getParameter("firstName")%>
-<%= request.getParameter("lastName")%>
+<html>
+<body>
 
-<!--display list of "favoriteResponse"-->
-<ul>
-    <%
-        String[] langs = request.getParameterValues("favoriteResponse");
-        for (String temp: langs){
-            System.out.println("<li>" + temp+ "</li>");
-        }
+The student is confirmed:
+<%= request.getParameter("firstName") %>
+<%= request.getParameter("lastName") %>
 
-    %>
-</ul>
+<% String[] langs = request.getParameterValues("favoriteLanguage");
+    for (String tempLang:langs){
+        out.println("<li>" + tempLang + "</li>");
+    }
+%>
+
+<br>
+${param.firstName}
+${param.lastName}
+
+</body>
+</html>
+
