@@ -4,34 +4,13 @@
     <meta charset="UTF-8">
     <title>My First HTML Page</title>
 
-    <!-- import external JS file -->
-    <script src="js/main.js"></script>
-    <script src="js/jquery-3.4.1.min.js"></script>
-
-    <script>
-
-      function testJQuery() {
-        // var el = document.getElementById('id');
-        // obtin element din document cu JQuery
-        var container = $("#testJQuery");
-        container.html("<ul><li>Item1</li><li id='item2'>Item2</li></ul>");
-
-        // sterg element
-        var item2 = $("#item2");
-        item2.remove();
-
-        // setez background
-        container.css({"background-color": "#0000FF"});
-      }
-    </script>
-
 </head>
 <body>
 
 <div align="center">
     <h2>Login page</h2>
 </div>
-
+<form action="HelloServlet" method="GET">
 <div align="center">
    <table>
        <tr>
@@ -65,24 +44,11 @@
         </tr>
     </table>
 
-    <div class = "details">
-
-    </div>
-
 </div>
 
+</form>
 
- <ul id="list1">
-     <li>Item 123</li>
- </ul>
 
-<!--a id="nav1" href="http://www.zf.ro/"> Click aici </a-->
-<!--input type="button" id="nav1" value="Click aici"/ -->
-
-<button onclick="testJQuery()">Test JQuery</button>
-<div id = "testJQuery">
-
-</div>
 
 </body>
 </html>
