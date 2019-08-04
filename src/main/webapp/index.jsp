@@ -35,6 +35,11 @@
            </td>
        </tr>
    </table>
+    <!-- aici trebuie sa faceti output si sa luati atributul (LoginResult)de pe request
+    stiti ca in jsp poti sa sctii cod Java, deci poti sa evaluezi ce request ai
+    if(LoginResult==false){
+    trebuie sa construiesti un mesajde eroare, de Ex: pass wrong
+    -->
 
     <table>
         <tr>

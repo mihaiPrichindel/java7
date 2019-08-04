@@ -3,10 +3,12 @@ package com.sda.helloServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.ServletException;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import com.sda.model.*;
+import com.sda.service.ClientService;
+import com.sda.service.ClientServiceDAO;
+
 import javax.servlet.*;
 /* java TODO:
 
@@ -24,6 +26,10 @@ in front end apelam: obiect.atribut => cu obligatia de a-l importa
 
 @WebServlet("/HelloServlet")
 public class HelloServlet extends HttpServlet{
+    public static final String user="Mihai";
+    public static final String password="123";
+    public ClientService clientService= new ClientServiceDAO();
+
 
 //   aici variabila care sa imi spuna daca sunt autentificat;;;
 
@@ -44,9 +50,36 @@ public class HelloServlet extends HttpServlet{
         rd.forward(request, response);
 
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException,IOException{
-        processRequest(request,response);
+        String id= request.getParameter("username");
+        String pass=request.getParameter("password");
+        if(hasRights(id,pass)) {
+            System.out.println(clientService.getClients().toString());
+          request.setAttribute("Clients",clientService.getClients());
+        processRequest(request,response);}
+        else{
+            //tema;
+            //trimite mesaj: Logon Denied
+            //in pagina de index.jsp (trebuie sa cauti un output si trebuie sa iei informatia de pe request
+            //trebuie fix aici sa setezi un atribut pe request, see line 38 "request.setAttribute(LoginResult, false)
+            //
+
+        }
+            }
+
+    private boolean hasRights(String introducedUser, String introducedPassword) {
+
+        if (introducedUser.equals(user)  && introducedPassword.equals(password) ) {
+            System.out.println("user has right of identification");
+            return true;
+        }
+        System.out.println("user does not has the right of authentification");
+        return false;
     }
+
+
+
 }
