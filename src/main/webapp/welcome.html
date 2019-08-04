@@ -1,0 +1,56 @@
+<html>
+<%@ page import="com.sda.welecome.*" %>
+<%@ page import="com.sda.helloServlet.*" %>
+
+<h2>
+ Here is my first JSP application
+</h2>
+
+Time on the server is: <%= new java.util.Date() %>
+<br>
+
+
+</body>
+
+/// stergem toate prostiile.  <br>
+
+<br>facem form de autentificare.
+<br>to do:
+<br>  doua inputuri: user si parola. + buton de login
+
+<br>  se va trimite request de autentificare catre  LoginServlet
+ <br>  pe do get:  se face o metoda separata in care verificam  daca credentialele sunt corecte.
+<br>   nu deschidem session, dar vorbim un pic despre
+<br>Hint!!!!
+
+
+
+<br><- facem exercitii de navigare in pagina/ ->
+
+<br>exemplu de login aici:
+<br>https://www.codejava.net/java-ee/servlet/handling-html-form-data-with-java-servlet
+<br> de asemenea, trebuie sa schimbam home-ul (pagina de start): trebuie sa mergem in: login form
+
+
+
+
+java TODO
+
+<br> 1. facem un serviciu pe care il instantam in servlet
+<br>2. serviciul se  va ocupa de treaba pe care o avem de facut.
+<br> serviciul va fi facut din doua bucati: o interfata si  o implementare.
+
+<br> 3. in implementare o sa facem conexiunea la baza de date si o sa rulam queri-urile pe care le avem de rulat
+<br> 4. Raspunsul va fi trimis pe response ca si obiect)
+<br>in front end apelam: obiect.atribut => cu obligatia de a-l importa
+<br>
+<br>
+<br>// facem impreuna crud complet pe cate pagini ne tin capacele ;) ce ramane va fi tema
+<br>*/
+
+<form  action"/HelloServlet" method="GET">
+
+    <input type="submit"  value="Submit">
+</form>
+<body>
+</html>
