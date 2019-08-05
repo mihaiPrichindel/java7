@@ -1,20 +1,19 @@
 <html>
 <body>
-
-The student is confirmed:
-<%= request.getParameter("firstName") %>
-<%= request.getParameter("lastName") %>
-
-<% String[] langs = request.getParameterValues("favoriteLanguage");
-for (String tempLang:langs){
-    out.println("<li>" + tempLang + "</li>");
-}
+<br/>
+<%= request.getParameter("firstName")%>
+<%= request.getParameter("LastName")%>
+<% String[] langs=request.getParameterValues("favouriteLanguage");
+for(String tempLang:langs){
+        out.println("<li>"+tempLang+"</li>");
+    }
 %>
-
-<br>
+<br/>
 ${param.firstName}
-${param.lastName}
-
+${param.LastName}
 </body>
+
 </html>
+
+
 
