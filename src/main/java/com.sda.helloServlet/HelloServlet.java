@@ -7,6 +7,9 @@ import javax.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import com.sda.model.*;
+import com.sda.service.ClientServiceDAO;
+import com.sda.service.ClientServiceInterface;
+
 import javax.servlet.*;
 /* java TODO:
 
@@ -27,7 +30,7 @@ public class HelloServlet extends HttpServlet{
 
 //   aici variabila care sa imi spuna daca sunt autentificat;;;
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) //TODO de clarificat ce face aceasta metoda
             throws ServletException, IOException
     {
         ExampleModel exampleModel = new ExampleModel();
@@ -35,7 +38,7 @@ public class HelloServlet extends HttpServlet{
         request.setAttribute("key",exampleModel);
 
         // Creating a RequestDispatcher object to dispatch
-        // the request the request to another resource
+        // the request the request to another resourceeliko
         RequestDispatcher rd = request.getRequestDispatcher("/home/home.jsp");
 
         // The request will be forwarded to the resource
@@ -47,6 +50,42 @@ public class HelloServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException,IOException{
-        processRequest(request,response);
+
+
+        String introducedUsername = request.getParameter("username"); // solicita de la form username
+        String introducedPassword = request.getParameter("password"); // solicita de la form password
+        if(hasRight(introducedUsername, introducedPassword)) { // raspunsul hasTrue == true solicita executarea procesului
+
+            System.out.println(clientService.getClients().toString()); // afiseaza in consola clienttii
+            request.setAttribute("Clients",clientService.getClients()); //
+
+            processRequest(request, response);
+        } else {
+            System.out.println("User si/sau parola incorecte");
+            // TODO: trimite mesaj: Logon Denied
+            //In pagina index.jsp trebuie sa cauti un output si trebuie sa iei informatia de pe request
+            // trebuie sa fii aici sa setezi un atribut pe req "request.setAtribute("LoginResult", false);
+
+        }
+
+    }
+
+    // Valori introduse manual pentru a putea verifica functionatii acceptarii accesului
+    private static String user = "AAAA";
+    private static String password = "AAAA1111";
+
+    public ClientServiceInterface clientService = new ClientServiceDAO();
+
+    private boolean hasRight(String introducedUsername, String introducedPaswword) {
+        //verificare concordanta username - parola. Din ratiuni didactice, valorile de control sunt prestabilite mai sus
+
+        boolean hasRight = false;
+        System.out.println("Hello from hasRight");
+        if(introducedUsername.equals(user) && introducedPaswword.equals(password)) {
+            hasRight = true;
+        }
+        // System.out.println(hasRight); // Verificarea in consola a valorii hasRight
+
+        return hasRight;
     }
 }

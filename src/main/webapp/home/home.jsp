@@ -2,6 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <html>
+
     <body>
         <br>de aici incepe mare fun
 
@@ -16,7 +17,29 @@
          ExampleModel exampleModel = (ExampleModel)request.getAttribute("key");%>
               </br>
                    <%=exampleModel.javaProperty%>
-    </body>
+        <br>
+        <br>
+        <br>
+
+<%Client client = (Client)request.getAttribute("Clients"); %>
+
+    <table border="2">
+        <caption>Tabel clienti</caption>
+        <tr>
+            <th type="text">NUME</th>
+            <th type="text">PRENUME</th>
+            <th type="number">CUI</th>
+        </tr>
+        <tr>
+            <td type="text"><%= client.getNume()%></td>
+            <td type="text"><%= client.getPrenume()%></td>
+            <td type="number"><%= client.getCNP()%></td>
+        </tr>
+    </table>
+
+   </body>
+
+
 </html>
 
 
