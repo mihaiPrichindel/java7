@@ -26,7 +26,7 @@ in front end apelam: obiect.atribut => cu obligatia de a-l importa
 
 @WebServlet("/HelloServlet")
 public class HelloServlet extends HttpServlet{
-    public static final String user="Mihai";
+    public static final String user="alexandra";
     public static final String password="123";
     public ClientService clientService= new ClientServiceDAO();
 
