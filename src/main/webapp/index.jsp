@@ -36,7 +36,7 @@
        </tr>
    </table>
 <!-- TODO:
-aici trebuie facut un aoutput se sa luati atributul (loginResult) de pe req.
+aici trebuie facut un output se sa luati atributul (loginResult) de pe req.
 In JSP se oate scrie cod JAVA,dec se poate evalua ce request ai:
 if(login Result==false){
 tebuie sa construiesti un mesaj: name/password wrong }
@@ -44,7 +44,7 @@ tebuie sa construiesti un mesaj: name/password wrong }
     <table>
         <tr>
             <td>
-                <p>If you don't have an account - <a href="pages/register.html">Register here</a></p>
+                <p>If you don't have an account - <a href="pages/register.html">Register here</a></p> <!-- TODO:  de rezolvat -->
             </td>
         </tr>
     </table>

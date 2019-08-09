@@ -1,6 +1,6 @@
-package com.sda.welecome;
+package com.sda.welcome;
 
-public class Welecome {
+public class Welcome {
      public static int sum(int a, int b) {
          return a + b;
      }

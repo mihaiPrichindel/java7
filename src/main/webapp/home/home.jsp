@@ -5,7 +5,6 @@
 
     <body>
         <br>de aici incepe mare fun
-
         <br>3.facem meniu (hotaram ce sa avem in meniu).
 
         <br>4.fiecare buton din meniu o sa ne duca in alta pagina. (pagina corespunzatoare a ceea ce am selectat)
