@@ -3,10 +3,12 @@ package com.sda.helloServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.ServletException;
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import com.sda.model.*;
+import com.sda.service.ClientServiceInterface;
+import com.sda.service.ClientsServiceDAO;
+
 import javax.servlet.*;
 /* java TODO:
 
@@ -24,6 +26,18 @@ in front end apelam: obiect.atribut => cu obligatia de a-l importa
 
 @WebServlet("/HelloServlet")
 public class HelloServlet extends HttpServlet{
+    public final String username = "Shadow";
+    public final String password = "test";
+
+    public ClientServiceInterface clientService = new ClientsServiceDAO();
+
+    public boolean hasRights(String introducedUser, String introducedPassword) {
+        boolean res = false;
+        if (introducedUser.equals(username) && introducedPassword.equals(password)) {
+            res = true;
+        }
+        return res;
+    }
 
 //   aici variabila care sa imi spuna daca sunt autentificat;;;
 
@@ -47,6 +61,32 @@ public class HelloServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException,IOException{
-        processRequest(request,response);
+        String user = request.getParameter("username");
+        String password = request.getParameter("password");
+        if (hasRights(user, password)) {
+            System.out.println(clientService.getClients().toString());
+            request.setAttribute("Clients", clientService.getClients());
+            processRequest(request, response);
+        } else {
+
+//             do nothing
+//             tema:
+//             trimite mesaj: Logon Denied
+//             in pagina de indes. jsp (tre sa cauti un output - si trebuie sa iei informatia de pe request
+//             trebuie fix aici sa setezi un atribut pe request, see line 45: request.setAttribute("LoginResult", false);
+//            PrintWriter out = response.getWriter();
+//            response.setContentType("text/html");
+//            out.println("<script type=\"text/javascript\">");
+//            out.println("alert('Wrong login details!');");
+//            out.println("</script>");
+
+            request.setAttribute("errorMessage", "Invalid username or password.");
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
+        }
+
     }
+
+
+
 }

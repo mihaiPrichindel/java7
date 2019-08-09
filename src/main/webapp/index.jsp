@@ -34,7 +34,25 @@
                <input type="submit" onclick="submitForm()" value="Login">
            </td>
        </tr>
+
    </table>
+    <!--
+    aici trebuie sa: faceti output si sa luati atributul de pe request (loginResult) de pe request
+    stiti ca in jsp poti scrie cod java deci poti sa evaluezi ce request ai:
+    if (loginResult == false) {
+        trebuie sa construiesti un mesaj: de Ex. pass wrong
+    }
+    -->
+    <%! String output(String input) {
+        return input;
+    }
+    %>
+    <%
+        if(null!=request.getAttribute("errorMessage"))
+        {
+            out.println(request.getAttribute("errorMessage"));
+        }
+    %>
 
     <table>
         <tr>
@@ -47,8 +65,6 @@
 </div>
 
 </form>
-
-
 
 </body>
 </html>

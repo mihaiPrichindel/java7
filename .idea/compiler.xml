@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ExercitiiGrupa7" target="1.5" />
+      <module name="ExercitiiGrupa7" target="6" />
       <module name="java7" target="1.5" />
     </bytecodeTargetLevel>
   </component>
