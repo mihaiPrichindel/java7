@@ -2,19 +2,23 @@ package com.sda.model;
 
 public class Client {
 
-    private  String nume;
+    private int id;
+    private String nume;
     private String prenume;
-    private  int CNP;
+    private String CNP;
 
-    public Client(String nume, String prenume, int CNP){
+
+    public Client(int id,String nume, String prenume, String CNP){
+        this.id = id;
         this.nume=nume;
         this.prenume=prenume;
         this.CNP=CNP;
 
     }
 
-    public Client(){
+    public Client(int id){
 
+        this.id = id;
     }
 
     public String getNume() {
@@ -33,12 +37,20 @@ public class Client {
         this.prenume = prenume;
     }
 
-    public  int getCNP() {
+    public  String getCNP() {
         return CNP;
     }
 
-    public void setCNP(int CNP) {
+    public void setCNP(String CNP) {
         this.CNP = CNP;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override

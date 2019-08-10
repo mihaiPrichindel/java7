@@ -1,18 +1,12 @@
 <%@page import="com.sda.model.*"%>
+<%@ page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <html>
     <body>
 
-    <% Client client= (Client)request.getAttribute("Clients");%>
+    <% List<Client> clientList= (List<Client>)request.getAttribute("Clients");%>
 
-        <br>de aici incepe mare fun
-
-        <br>3.facem meniu (hotaram ce sa avem in meniu).
-
-        <br>4.fiecare buton din meniu o sa ne duca in alta pagina. (pagina corespunzatoare a ceea ce am selectat)
-
-        <br> 5. odata creata pagina dorita (nu stiu inca ce "business" o sa avem) va  avea forma ei.
 
        <%
 
@@ -21,21 +15,31 @@
                    <%=exampleModel.javaProperty%>
         <br/>
 
-    <table border="1" allign="center">Clienti<br/>
+    <table border="1">
+        <caption>
+            Clienti
+        </caption>
         <tr>
+            <th type="number">Id</th>
             <th type="text">Nume</th>
             <th type="text">Prenume</th>
-            <th type="number">CNP</th>
+            <th type="text">CNP</th>
         </tr>
 
+        <% for(Client client:clientList) {    %>
         <tr>
+            <td type="number"><%=client.getId()%></td>
             <td type="text"><%=client.getNume()%></td>
             <td type="text"><%=client.getPrenume()%></td>
-            <td type="number"><%=client.getCNP()%></td>
+            <td type="text"><%=client.getCNP()%></td>
         </tr>
 
+        <% // aceasta acolada este de la for each ul de mai sus
+        } %>
+
+
     </table>
-    <div align="center"><a href="http://localhost:8080/FirstProject">Return to login page</a></div>
+    <div align="center"><a href="http://localhost:8080/JSPProject">Return to login page</a></div>
     </body>
 </html>
 

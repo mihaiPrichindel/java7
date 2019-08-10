@@ -7,6 +7,18 @@
     <groupId>com.geodani.html</groupId>
     <artifactId>html-ex1</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <packaging>war</packaging>
 <dependencies>
 
@@ -16,9 +28,17 @@
         <version>3.0.1</version>
         <scope>provided</scope>
     </dependency>
-</dependencies>
 
 
+       <dependency>
+           <groupId>mysql</groupId>
+           <artifactId>mysql-connector-java</artifactId>
+           <version>8.0.17</version>
+       </dependency>
+   </dependencies>
+
+   <!-- this is the way you can simulate tomcat server - this is a plugin-->
+<!--
     <build>
         <plugins>
             <plugin>
@@ -31,6 +51,8 @@
             </plugin>
         </plugins>
     </build>
+-->
+
 
 
 
