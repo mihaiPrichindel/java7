@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
+import java.sql.SQLException;
 
 import com.sda.model.*;
 import com.sda.service.ClientServiceInterface;
@@ -64,8 +65,8 @@ public class HelloServlet extends HttpServlet{
         String user = request.getParameter("username");
         String password = request.getParameter("password");
         if (hasRights(user, password)) {
-            System.out.println(clientService.getClients().toString());
-            request.setAttribute("Clients", clientService.getClients());
+            System.out.println(clientService.getClient().toString());
+            request.setAttribute("Clients", clientService.getClientList());
             processRequest(request, response);
         } else {
 
@@ -86,7 +87,4 @@ public class HelloServlet extends HttpServlet{
         }
 
     }
-
-
-
 }
