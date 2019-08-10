@@ -1,3 +1,4 @@
+<%@ page import="com.sda.welcome.Welcome" %>
 <html>
 <body>
 <h2>
@@ -10,7 +11,10 @@ Time on the server is <%= new java.util.Date()%>
 
 <%= new String("Hello World").toUpperCase()%>
 
+<br>
 
-</body>
+Call on java class sum method is :<%=Welcome.sum(3,3)%>
+
+        </body>
 
 </html>
