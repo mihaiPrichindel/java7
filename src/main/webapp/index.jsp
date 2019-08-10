@@ -8,7 +8,7 @@
 <body>
 
 <div align="center">
-    <h2>Login page</h2>
+    <h1>Login page</h1>
 </div>
 <form action="HelloServlet" method="GET">
 <div align="center">
@@ -35,6 +35,11 @@
            </td>
        </tr>
    </table>
+
+    <!--aici tb sa faceti output si sa luati atributul(loginResult) de pe req,
+    stiti ca in jsp poti scrie cod java. deci:poti sa evaluezi ce req ai.
+    if(loginResult==false){trebuie sa construiesti un mesaj:pass wrong}
+    -->
 
     <table>
         <tr>

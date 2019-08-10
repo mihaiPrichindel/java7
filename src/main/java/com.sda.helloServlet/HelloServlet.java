@@ -3,10 +3,12 @@ package com.sda.helloServlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.ServletException;
 import java.io.IOException;
-import java.io.PrintWriter;
-import com.sda.model.*;
+
+import com.sda.model.ExampleModel;
+import com.sda.service.ClientService;
+import com.sda.service.ClientServiceDAO;
+
 import javax.servlet.*;
 /* java TODO:
 
@@ -23,16 +25,21 @@ in front end apelam: obiect.atribut => cu obligatia de a-l importa
 */
 
 @WebServlet("/HelloServlet")
-public class HelloServlet extends HttpServlet{
+public class HelloServlet extends HttpServlet {
 
 //   aici variabila care sa imi spuna daca sunt autentificat;;;
 
+    private static final String user="123";
+    private static final String pass="123";
+    public ClientService clientService = new ClientServiceDAO();
+
+
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
+            throws ServletException, IOException {
         ExampleModel exampleModel = new ExampleModel();
         exampleModel.javaProperty = "Hello from servlet";
-        request.setAttribute("key",exampleModel);
+        request.setAttribute("key", exampleModel);
 
         // Creating a RequestDispatcher object to dispatch
         // the request the request to another resource
@@ -41,12 +48,45 @@ public class HelloServlet extends HttpServlet{
         // The request will be forwarded to the resource
         // specified, here the resource is a JSP named,
         // "stdlist.jsp"
-        rd.forward(request, response);
-
+        rd.forward(request,response);
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException,IOException{
-        processRequest(request,response);
+            throws ServletException, IOException {
+
+
+        String id= request.getParameter("username");
+        String pass=request.getParameter("password");
+
+        if(hasRights(id,pass)){
+            System.out.println(clientService.getClients().toString());
+            request.setAttribute("Client",clientService.getClients());
+            processRequest(request,response);}
+
+        //setam pe request ca si atribut clientii
+       // System.out.println(clientService.getClients().toString());
+        processRequest(request, response);
+    }
+
+    private boolean hasRights
+            (String introducedUser, String introducedPassword){
+
+
+
+        boolean result=true;
+        if(introducedUser.equals(user)&&introducedPassword.equals(pass)){
+            result=true;
+            System.out.println(result);
+            return result;
+        }
+
+        System.out.println(result);
+        return result;
+        //tema: trimite mesaj: Logon Denied
+        //in aceeasi pagina trebuie sa cauti un output
+        // trebuei sa iei informatia de pe request, trebuie fix aici sa setezi
+        //un atribut pe request,"result.setAtribute("LoginResult", false)"
+
     }
 }
