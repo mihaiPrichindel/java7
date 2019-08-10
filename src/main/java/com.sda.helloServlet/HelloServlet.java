@@ -33,6 +33,18 @@ public class HelloServlet extends HttpServlet{
 
 //   aici variabila care sa imi spuna daca sunt autentificat;;;
 
+
+    private boolean hasRights(String introducedUser, String introducedPassword) {
+
+        if (introducedUser.equals(user)  && introducedPassword.equals(password) ) {
+            System.out.println("user has right of identification");
+            return true;
+        }
+        System.out.println("user does not has the right of authentification");
+        return false;
+    }
+
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
     {
@@ -61,6 +73,10 @@ public class HelloServlet extends HttpServlet{
           request.setAttribute("Clients",clientService.getClients());
         processRequest(request,response);}
         else{
+
+            request.setAttribute("errorMessage", "Invalid username or password.");
+            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+            rd.forward(request, response);
             //tema;
             //trimite mesaj: Logon Denied
             //in pagina de index.jsp (trebuie sa cauti un output si trebuie sa iei informatia de pe request
@@ -70,15 +86,6 @@ public class HelloServlet extends HttpServlet{
         }
             }
 
-    private boolean hasRights(String introducedUser, String introducedPassword) {
-
-        if (introducedUser.equals(user)  && introducedPassword.equals(password) ) {
-            System.out.println("user has right of identification");
-            return true;
-        }
-        System.out.println("user does not has the right of authentification");
-        return false;
-    }
 
 
 

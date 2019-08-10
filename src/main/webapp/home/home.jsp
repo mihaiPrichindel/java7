@@ -23,9 +23,9 @@
 
     <table border="1" allign="center">Clienti<br/>
         <tr>
-            <td type="text">Nume</td>
-            <td type="text">Prenume</td>
-            <td type="number">CNP</td>
+            <th type="text">Nume</th>
+            <th type="text">Prenume</th>
+            <th type="number">CNP</th>
         </tr>
 
         <tr>
@@ -35,7 +35,7 @@
         </tr>
 
     </table>
-
+    <div align="center"><a href="http://localhost:8080/FirstProject">Return to login page</a></div>
     </body>
 </html>
 

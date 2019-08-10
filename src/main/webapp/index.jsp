@@ -41,6 +41,17 @@
     trebuie sa construiesti un mesajde eroare, de Ex: pass wrong
     -->
 
+    <%! String output(String input) {
+        return input;
+    }
+    %>
+    <%
+        if(null!=request.getAttribute("errorMessage"))
+        {
+            out.println(request.getAttribute("errorMessage"));
+        }
+    %>
+
     <table>
         <tr>
             <td>
