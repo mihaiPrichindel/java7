@@ -3,12 +3,21 @@ package com.sda.model;
 public class Client {
     private String nume;
     private String prenume;
-    private int CNP;
+    private String CNP;
+    private int ID;
 
-    public Client(String nume, String prenume, int CNP) {
+    public Client(String nume, String prenume, String CNP) {
         this.nume = nume;
         this.prenume = prenume;
         this.CNP = CNP;
+    }
+
+    public Client(int ID, String nume, String prenume, String CNP) {
+        this.ID = ID;
+        this.nume = nume;
+        this.prenume = prenume;
+        this.CNP = CNP;
+
     }
 
     public Client() { // constructor fara parametru, pentru just in case
@@ -31,11 +40,11 @@ public class Client {
         this.prenume = prenume;
     }
 
-    public int getCNP() {
+    public String getCNP() {
         return CNP;
     }
 
-    public void setCNP(int CNP) {
+    public void setCNP(String CNP) {
         this.CNP = CNP;
     }
 

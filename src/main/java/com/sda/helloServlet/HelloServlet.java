@@ -32,7 +32,7 @@ public class HelloServlet extends HttpServlet{
     {
         System.out.println("Hello from HelloServlet.processRequest()");
         ExampleModel exampleModel = new ExampleModel(); //TODO - nu inteleg ce rost au aceste linii de cod (3 la numar). In home.jsp ducem date pe care nu le regasesc aici (nume, prenume etc.
-        exampleModel.javaProperty = "Hello from servlet";
+        exampleModel.javaProperty = "Hello from servlet"; // Linii folosite in alt context
         request.setAttribute("key",exampleModel);
 
         // Creating a RequestDispatcher object to dispatch the request to another resourcee
@@ -55,8 +55,8 @@ public class HelloServlet extends HttpServlet{
 
         if(hasRight(introducedUsername, introducedPassword)) { // raspunsul hasTrue == true solicita executarea procesului
 
-            System.out.println(clientService.getClients().toString() + "     suntem tot in HelloServlet.doGet()"); // afiseaza in consola clienttii
-            request.setAttribute("Clients",clientService.getClients()); // setam atributele request
+            System.out.println(clientService.getClient().toString() + "     suntem tot in HelloServlet.doGet()"); // afiseaza in consola clienttii
+            request.setAttribute("Clients",clientService.getClientList()); // setam atributele request
                         // cu valorile returnate de clientService
 
             System.out.println("     doGet() apeleaza processRequest(request, response)");

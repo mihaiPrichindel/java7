@@ -7,28 +7,8 @@
     <groupId>com.geodani.html</groupId>
     <artifactId>html-ex1</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
-<dependencies>
-
-    <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
-        <version>3.0.1</version>
-        <scope>provided</scope>
-    </dependency>
-</dependencies>
-
-
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.2</version>
-                <configuration>
-                    <path>/FirstProject</path>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -39,6 +19,46 @@
             </plugin>
         </plugins>
     </build>
+    <packaging>war</packaging>
+<dependencies>
+
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.0.1</version>
+        <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.17</version>
+    </dependency>
+</dependencies>
+
+
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--&lt;!&ndash;este o simulare de servet TOMCAT&ndash;&gt;-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.tomcat.maven</groupId>-->
+                <!--<artifactId>tomcat7-maven-plugin</artifactId>-->
+                <!--<version>2.2</version>-->
+                <!--<configuration>-->
+                    <!--<path>/FirstProject</path>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<source>1.6</source>-->
+                    <!--<target>1.6</target>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
 
 
 
