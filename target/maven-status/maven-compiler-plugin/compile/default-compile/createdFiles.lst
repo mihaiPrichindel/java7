@@ -1,2 +1,7 @@
 com\sda\welcome\Welcome.class
+com\sda\helloServlet\HelloServlet.class
+com\sda\service\ClientServiceInterface.class
 Test.class
+com\sda\service\ClientServiceDAO.class
+com\sda\model\Client.class
+com\sda\model\ExampleModel.class
