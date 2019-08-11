@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="html-ex1" />
         <module name="ExercitiiGrupa7" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ExercitiiGrupa7" target="1.5" />
       <module name="GIT project" target="1.5" />
+      <module name="html-ex1" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -3,5 +3,11 @@ package com.sda.service;
 import com.sda.model.*;
 
 public interface ClientService {
-    Client getClients();
+
+    Client getClient();
+
+    Object getClientList();
+
+    void addClient (Client clientNou);
+
 }

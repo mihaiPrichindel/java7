@@ -8,10 +8,12 @@ import java.util.List;
 
 public class ClientServiceDAO implements ClientService {
     private static final String FIND_ALL_CLIENTS_QUERRY = "SELECT * FROM CLIENTS";
-
+    private static final String ADD_NEW_CLIENT_QUERRY = "INSERT INTO CLIENTS Value " +
+            "('nume', 'prenume', 'cnp') values (?, ?, ?)";// am facut querry-ul
     Connection conn;
     Statement stat;
     ResultSet resultSet;
+    PreparedStatement preparedStatement;
 
 
     public Client getClient() {
@@ -71,6 +73,30 @@ public class ClientServiceDAO implements ClientService {
 
     public Object getClientList() {
         return populateClientList();
+    }
+
+    public void addClient(Client clientNou) {
+    //CREEZ CONEXIUNEA:
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/client",
+                    "root", "root");
+            preparedStatement = conn.prepareStatement(ADD_NEW_CLIENT_QUERRY);//creaza statement
+            preparedStatement.setString(1, clientNou.getNume());
+            preparedStatement.setString(2, clientNou.getPrenume());
+            preparedStatement.setString(3, clientNou.getCnp());
+
+            int row = preparedStatement.executeUpdate();
+            conn.close();
+        }
+        catch (SQLException exc){
+            exc.printStackTrace();//printeaza eroarea -prinde SQL exception
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();//prinde eroarea nu gaseste clasa
+        }
+        catch (Exception a){
+            a.printStackTrace();//prinde orice exceptie generala
+        }
     }
 
 }

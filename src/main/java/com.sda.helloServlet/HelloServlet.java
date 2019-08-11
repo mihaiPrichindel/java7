@@ -37,9 +37,6 @@ public class HelloServlet extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        ExampleModel exampleModel = new ExampleModel();
-        exampleModel.javaProperty = "Hello from servlet";
-        request.setAttribute("key", exampleModel);
 
         // Creating a RequestDispatcher object to dispatch
         // the request the request to another resource
@@ -54,26 +51,22 @@ public class HelloServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-
         String id= request.getParameter("username");
         String pass=request.getParameter("password");
-
         if(hasRights(id,pass)){
-            System.out.println(clientService.getClients().toString());
-            request.setAttribute("Client",clientService.getClients());
-            processRequest(request,response);}
+            System.out.println(clientService.getClient().toString());
+            request.setAttribute("Client", clientService.getClientList());
+            processRequest(request,response);
+        }else {
 
-        //setam pe request ca si atribut clientii
-       // System.out.println(clientService.getClients().toString());
-        processRequest(request, response);
+            //setam pe request ca si atribut clientii
+            // System.out.println(clientService.getClients().toString());
+            processRequest(request, response);
+        }
     }
 
     private boolean hasRights
             (String introducedUser, String introducedPassword){
-
-
-
         boolean result=true;
         if(introducedUser.equals(user)&&introducedPassword.equals(pass)){
             result=true;
