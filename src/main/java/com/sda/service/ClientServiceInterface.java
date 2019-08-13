@@ -9,6 +9,5 @@ public interface ClientServiceInterface {
 
     Client getClient();
     List<Client> getClientList();
-
-
+    void addClientNou(Client clientNou);
 }

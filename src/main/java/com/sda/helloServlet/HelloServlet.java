@@ -31,9 +31,9 @@ public class HelloServlet extends HttpServlet{
             throws ServletException, IOException
     {
         System.out.println("Hello from HelloServlet.processRequest()");
-        ExampleModel exampleModel = new ExampleModel(); //TODO - nu inteleg ce rost au aceste linii de cod (3 la numar). In home.jsp ducem date pe care nu le regasesc aici (nume, prenume etc.
-        exampleModel.javaProperty = "Hello from servlet"; // Linii folosite in alt context
-        request.setAttribute("key",exampleModel);
+//        ExampleModel exampleModel = new ExampleModel(); //TODO - nu inteleg ce rost au aceste linii de cod (3 la numar). In home.jsp ducem date pe care nu le regasesc aici (nume, prenume etc.
+//        exampleModel.javaProperty = "Hello from servlet"; // Linii folosite in alt context
+//        request.setAttribute("key",exampleModel);
 
         // Creating a RequestDispatcher object to dispatch the request to another resourcee
         // Creem un obiect rd de tip RequestDispatcher
@@ -75,9 +75,10 @@ public class HelloServlet extends HttpServlet{
 
     // Valori introduse manual pentru a putea verifica functionatii acceptarii accesului
     private static String user = "AAAA"; //TODO: de gasit solutia de postare in alta parte, pentru mai multe combinatii USER / PASSWORD
-    private static String password = "AAAA1111";
+    private static String password = "1111";
 
-    public ClientServiceInterface clientService = new ClientServiceDAO();
+
+    public ClientServiceInterface clientService = new ClientServiceDAO(); // stie sa faca serviciipentru mine
 
     private boolean hasRight(String introducedUsername, String introducedPaswword) {
         //verificare concordanta username - parola. Din ratiuni didactice, valorile de control sunt prestabilite mai sus

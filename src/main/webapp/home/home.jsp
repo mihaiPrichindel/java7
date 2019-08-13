@@ -12,11 +12,11 @@
 
         <br> 5. odata creata pagina dorita (nu stiu inca ce "business" o sa avem) va  avea forma ei.
 
-       <%
+       <%--<%--%>
 
-         ExampleModel exampleModel = (ExampleModel)request.getAttribute("key");%>
-              </br>
-                   <%=exampleModel.javaProperty%>
+         <%--ExampleModel exampleModel = (ExampleModel)request.getAttribute("key");%>--%>
+              <%--</br>--%>
+                   <%--<%=exampleModel.javaProperty%>--%>
         <br>
         <br>
         <br>
@@ -31,7 +31,7 @@
         <tr>
             <th type="text">NUME</th>
             <th type="text">PRENUME</th>
-            <th type="number">CUI</th>
+            <th type="number">CNP</th>
         </tr>
 
         <%
