@@ -65,8 +65,8 @@ public class HelloServlet extends HttpServlet {
         String user = request.getParameter("username");
         String password = request.getParameter("password");
         if (hasRights(user, password)) {
-            System.out.println(clientService.getClients().toString());
-            request.setAttribute("Clients", clientService.getClients());
+            System.out.println(clientService.getClient().toString());
+            request.setAttribute("Clients", clientService.getClientList());
             processRequest(request, response);
         } else {
 
