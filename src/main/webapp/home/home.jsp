@@ -48,6 +48,10 @@
 
     </table>
 
+        <br>
+        <br>
+
+        <p align='center'>Daca doriti sa introduceti clienti noi - <a href="/work/home/addClient.jsp">introducere client nou</a></p>
    </body>
 
 

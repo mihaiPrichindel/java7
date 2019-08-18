@@ -13,7 +13,7 @@ public class ClientServiceDAO  implements ClientServiceInterface{
             "SELECT * FROM CLIENTS"; // CLIENTS este numele tabelului din schema
 
     private static final String ADD_NEW_CLIENT =
-            "INSERT INTO CLIENTS.CLIENTS VALUE ('NUME', 'PRENUME', 'CNP') VALUES (?, ?, ?)";
+            "INSERT INTO CLIENTS  (NUME, PRENUME, CNP) VALUES (?, ?, ?)";
 
 
     Connection conn;
