@@ -16,10 +16,27 @@ public class ClientServiceDAO  implements ClientServiceInterface{
             "INSERT INTO CLIENTS  (NUME, PRENUME, CNP) VALUES (?, ?, ?)";
 
 
-    Connection conn;
-    Statement stmt;
-    PreparedStatement preparedStatement;
-    ResultSet resultSet;
+    private Connection conn;
+    private Statement stmt;
+    private PreparedStatement preparedStatement;
+    private ResultSet resultSet;
+
+    private Connection MySQLConnection() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/clients", // clients este schema la care ne conectam
+                    "root",
+                    "Veveveve11!!"); // se iau din conexiunea pentru baza de date - CLIENTS este numele schemei
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return conn;
+    }
+
 
     @Override
     public Client getClient() {
@@ -48,11 +65,14 @@ public class ClientServiceDAO  implements ClientServiceInterface{
         //deschidem conexiunea
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/clients",
-                    "root",
-                    "Veveveve11!!"); // se iau din conexiunea pentru baza de date - CLIENTS este numele schemei
+            MySQLConnection(); // am creat metoda distincta pentru conectare la baza de date SQL pe care o apelam aici.
+                    // pentru aceasta metoda am folosind liniile de mai jos (inhibate)
+                    // a fost invibata si linia - catch (ClassNotFoundException e)
+//            Class.forName("com.mysql.jdbc.Driver");
+//            conn = DriverManager.getConnection(
+//                    "jdbc:mysql://localhost:3306/clients",
+//                    "root",
+//                    "Veveveve11!!"); // se iau din conexiunea pentru baza de date - CLIENTS este numele schemei
             stmt = conn.createStatement();
             resultSet = stmt.executeQuery(FIND_ALL_CLIENTS_QUERY);
 
@@ -63,10 +83,9 @@ public class ClientServiceDAO  implements ClientServiceInterface{
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
         }
-
 
         return clientList;
     }
@@ -89,11 +108,14 @@ public class ClientServiceDAO  implements ClientServiceInterface{
     @Override
     public void addClientNou(Client clientNou) {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/clients",
-                    "root",
-                    "Veveveve11!!"); // se iau din conexiunea pentru baza de date - CLIENTS este numele schemei
+            MySQLConnection(); // am creat metoda distincta pentru conectare la baza de date SQL pe care o apelam aici.
+                        // pentru aceasta metoda am folosind liniile de mai jos (inhibate)
+                        // a fost invibata si linia - catch (ClassNotFoundException e)
+//            Class.forName("com.mysql.jdbc.Driver");
+//            conn = DriverManager.getConnection(
+//                    "jdbc:mysql://localhost:3306/clients",
+//                    "root",
+//                    "Veveveve11!!"); // se iau din conexiunea pentru baza de date - CLIENTS este numele schemei
             preparedStatement = conn.prepareStatement(ADD_NEW_CLIENT);
             preparedStatement.setString(1, clientNou.getNume());
             preparedStatement.setString(2, clientNou.getPrenume());
@@ -104,12 +126,11 @@ public class ClientServiceDAO  implements ClientServiceInterface{
         } catch (SQLException e) {
             e.printStackTrace(); // printeaza eroarea "prinde SQL exception"
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace(); // printeaza eroarea "nu gaseste clasa"
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace(); // printeaza eroarea "nu gaseste clasa"
 
         } catch (Exception a) {
             a.printStackTrace(); // prinde orice eroare
         }
     }
-
 }

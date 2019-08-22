@@ -27,7 +27,7 @@
 %>
 
     <table border="2" align="Center">
-        <caption>Tabel clienti</caption>
+        <caption><b>Tabel clienti</b></caption>
         <tr>
             <th type="text">NUME</th>
             <th type="text">PRENUME</th>
@@ -50,9 +50,12 @@
 
         <br>
         <br>
+        <p align='center'>Introducere clienti noi - <input type="submit" value="Adaugare client"
+                                 onclick="window.location='/work/home/addClient.jsp';" /></p>
+        <%--varianta alternativa introducere client nou --%>
+        <p align='center'><a href="/work/home/addClient.jsp">Introducere client nou</a></p>
 
-        <p align='center'>Daca doriti sa introduceti clienti noi - <a href="/work/home/addClient.jsp">introducere client nou</a></p>
-   </body>
+    </body>
 
 
 </html>

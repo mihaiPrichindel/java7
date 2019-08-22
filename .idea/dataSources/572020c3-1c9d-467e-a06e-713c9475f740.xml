@@ -1125,241 +1125,290 @@
     <table id="283" parent="2" name="clients">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="284" parent="3" name="address">
+    <table id="284" parent="2" name="login">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="285" parent="3" name="adress_seqence">
+    <table id="285" parent="3" name="address">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="286" parent="3" name="course">
+    <table id="286" parent="3" name="adress_seqence">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="287" parent="3" name="course_seqence">
+    <table id="287" parent="3" name="course">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="288" parent="3" name="student">
+    <table id="288" parent="3" name="course_seqence">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="289" parent="3" name="student_course">
+    <table id="289" parent="3" name="student">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="290" parent="3" name="student_seqence">
+    <table id="290" parent="3" name="student_course">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="291" parent="3" name="teacher">
+    <table id="291" parent="3" name="student_seqence">
       <Engine>InnoDB</Engine>
     </table>
-    <table id="292" parent="3" name="teacher_seqence">
+    <table id="292" parent="3" name="teacher">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="293" parent="283" name="ID">
+    <table id="293" parent="3" name="teacher_seqence">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="294" parent="283" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="283" name="NUME">
+    <column id="295" parent="283" name="NUME">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="283" name="PRENUME">
+    <column id="296" parent="283" name="PRENUME">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="296" parent="283" name="CNP">
+    <column id="297" parent="283" name="CNP">
       <Position>4</Position>
       <DataType>varchar(13)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="297" parent="283" name="unique_CNP">
+    <index id="298" parent="283" name="unique_CNP">
       <ColNames>CNP</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="298" parent="283" name="PRIMARY">
+    <key id="299" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="299" parent="283" name="unique_CNP">
+    <key id="300" parent="283" name="unique_CNP">
       <ColNames>CNP</ColNames>
       <UnderlyingIndexName>unique_CNP</UnderlyingIndexName>
     </key>
-    <column id="300" parent="284" name="id">
+    <column id="301" parent="284" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="302" parent="284" name="username">
+      <Position>2</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="303" parent="284" name="password">
+      <Position>3</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="304" parent="284" name="emailAddress">
+      <Position>4</Position>
+      <DataType>varchar(250)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="305" parent="284" name="login_ID_uindex">
+      <ColNames>ID</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="306" parent="284" name="login_username_uindex">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="307" parent="284" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="308" parent="284" name="login_ID_uindex">
+      <ColNames>ID</ColNames>
+      <UnderlyingIndexName>login_ID_uindex</UnderlyingIndexName>
+    </key>
+    <key id="309" parent="284" name="login_username_uindex">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>login_username_uindex</UnderlyingIndexName>
+    </key>
+    <column id="310" parent="285" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="284" name="city">
+    <column id="311" parent="285" name="city">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="284" name="street">
+    <column id="312" parent="285" name="street">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="303" parent="284" name="PRIMARY">
+    <key id="313" parent="285" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="304" parent="285" name="next_val">
+    <column id="314" parent="286" name="next_val">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="286" name="id">
+    <column id="315" parent="287" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="306" parent="286" name="code">
+    <column id="316" parent="287" name="code">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="307" parent="286" name="description">
+    <column id="317" parent="287" name="description">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="308" parent="286" name="teacher_id">
+    <column id="318" parent="287" name="teacher_id">
       <Position>4</Position>
       <DataType>bigint(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="309" parent="286" name="FK90kt2haj2fb3guifaq4rgy8m4">
+    <index id="319" parent="287" name="FK90kt2haj2fb3guifaq4rgy8m4">
       <ColNames>teacher_id</ColNames>
     </index>
-    <key id="310" parent="286" name="PRIMARY">
+    <key id="320" parent="287" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="311" parent="286" name="FK90kt2haj2fb3guifaq4rgy8m4">
+    <foreign-key id="321" parent="287" name="FK90kt2haj2fb3guifaq4rgy8m4">
       <ColNames>teacher_id</ColNames>
       <RefSchemaName>courses</RefSchemaName>
       <RefTableName>teacher</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="312" parent="287" name="next_val">
+    <column id="322" parent="288" name="next_val">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="288" name="id">
+    <column id="323" parent="289" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="288" name="birth_date">
+    <column id="324" parent="289" name="birth_date">
       <Position>2</Position>
       <DataType>date|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="315" parent="288" name="first_name">
+    <column id="325" parent="289" name="first_name">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="316" parent="288" name="last_name">
+    <column id="326" parent="289" name="last_name">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="288" name="address_id">
+    <column id="327" parent="289" name="address_id">
       <Position>5</Position>
       <DataType>bigint(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="318" parent="288" name="FKf12myy73nsf6soln9xli8th80">
+    <index id="328" parent="289" name="FKf12myy73nsf6soln9xli8th80">
       <ColNames>address_id</ColNames>
     </index>
-    <key id="319" parent="288" name="PRIMARY">
+    <key id="329" parent="289" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="320" parent="288" name="FKf12myy73nsf6soln9xli8th80">
+    <foreign-key id="330" parent="289" name="FKf12myy73nsf6soln9xli8th80">
       <ColNames>address_id</ColNames>
       <RefSchemaName>courses</RefSchemaName>
       <RefTableName>address</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="321" parent="289" name="stud_id">
+    <column id="331" parent="290" name="stud_id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="322" parent="289" name="course_id">
+    <column id="332" parent="290" name="course_id">
       <Position>2</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="323" parent="289" name="FK2arpjfduc9d43js5xlab9gu23">
+    <index id="333" parent="290" name="FK2arpjfduc9d43js5xlab9gu23">
       <ColNames>stud_id</ColNames>
     </index>
-    <index id="324" parent="289" name="FKtao0ysp4xfmi9dlxc10ku58qq">
+    <index id="334" parent="290" name="FKtao0ysp4xfmi9dlxc10ku58qq">
       <ColNames>course_id</ColNames>
     </index>
-    <foreign-key id="325" parent="289" name="FK2arpjfduc9d43js5xlab9gu23">
+    <foreign-key id="335" parent="290" name="FK2arpjfduc9d43js5xlab9gu23">
       <ColNames>stud_id</ColNames>
       <RefSchemaName>courses</RefSchemaName>
       <RefTableName>student</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="326" parent="289" name="FKtao0ysp4xfmi9dlxc10ku58qq">
+    <foreign-key id="336" parent="290" name="FKtao0ysp4xfmi9dlxc10ku58qq">
       <ColNames>course_id</ColNames>
       <RefSchemaName>courses</RefSchemaName>
       <RefTableName>course</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="327" parent="290" name="next_val">
+    <column id="337" parent="291" name="next_val">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="291" name="id">
+    <column id="338" parent="292" name="id">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="291" name="first_name">
+    <column id="339" parent="292" name="first_name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="330" parent="291" name="hire_date">
+    <column id="340" parent="292" name="hire_date">
       <Position>3</Position>
       <DataType>datetime(6)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="291" name="last_name">
+    <column id="341" parent="292" name="last_name">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="332" parent="291" name="salary">
+    <column id="342" parent="292" name="salary">
       <Position>5</Position>
       <DataType>double|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="333" parent="291" name="PRIMARY">
+    <key id="343" parent="292" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="334" parent="292" name="next_val">
+    <column id="344" parent="293" name="next_val">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
       <ColumnKind>normal</ColumnKind>

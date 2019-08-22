@@ -10,7 +10,10 @@
 <div align="center">
     <h2>Login page</h2>
 </div>
-<form action="HelloServlet" method="GET">
+<form action="HelloServlet" method="POST">
+            <!--  varianta alternativa cu metoda GET-->
+    <!--  <form action="HelloServlet" method="POST">-->
+
 <div align="center">
    <table>
        <tr>
@@ -41,6 +44,15 @@ In JSP se oate scrie cod JAVA,dec se poate evalua ce request ai:
 if(login Result==false){
 tebuie sa construiesti un mesaj: name/password wrong }
 -->
+
+
+    <%
+        if(null!=request.getAttribute("Mesaj eroare"))
+        {
+            out.println(request.getAttribute("Mesaj eroare"));
+        }
+    %>
+
     <table>
         <tr>
             <td>
@@ -48,6 +60,7 @@ tebuie sa construiesti un mesaj: name/password wrong }
             </td>
         </tr>
     </table>
+
 
 </div>
 
